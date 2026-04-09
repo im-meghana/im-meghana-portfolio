@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -20,6 +21,7 @@ body {
   transition: background-color 0.3s ease;
   font-family: 'DM Sans', sans-serif;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 *::-webkit-scrollbar {
@@ -29,6 +31,25 @@ body {
 * {
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+button,
+a,
+div[class*="btn"],
+div[class*="card"],
+.nav-chip,
+.contact-card,
+.project-card,
+.social-icon-home,
+.footer-icon,
+.footer-link,
+.mobile-nav-item {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+*:focus {
+  outline: none;
 }
 
 #loader {
@@ -170,12 +191,10 @@ html {
   .projects-section {
     margin-bottom: 30px;
   }
-  
   .skills-section {
     margin-top: 30px;
     margin-bottom: 30px;
   }
-  
   .section-placeholder {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -186,12 +205,10 @@ html {
   .projects-section {
     margin-bottom: 35px;
   }
-  
   .skills-section {
     margin-top: 35px;
     margin-bottom: 35px;
   }
-  
   .section-placeholder {
     margin-top: 35px;
     margin-bottom: 35px;
@@ -202,12 +219,10 @@ html {
   .projects-section {
     margin-bottom: 80px;
   }
-  
   .skills-section {
     margin-top: 80px;
     margin-bottom: 60px;
   }
-  
   .section-placeholder {
     margin-top: 60px;
     margin-bottom: 60px;
@@ -261,13 +276,11 @@ html {
     bottom: 20px;
     right: 20px;
   }
-  
   .scroll-to-top-button {
     width: 48px;
     height: 48px;
     border-radius: 14px;
   }
-  
   .scroll-to-top-button svg {
     width: 22px;
     height: 22px;

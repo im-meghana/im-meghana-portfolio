@@ -75,9 +75,9 @@ function renderHomeContent() {
   `;
   
   if (desktop) {
-    container.innerHTML = `<div class="reveal-animation" style="display: flex; align-items: center; justify-content: space-between;"><div style="flex: 5;">${heroText}</div><div style="width: 80px;"></div><div class="reveal-animation" style="animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards;">${portraitCard}</div></div>`;
+    container.innerHTML = `<div style="display: flex; align-items: center; justify-content: space-between;"><div style="flex: 5;">${heroText}</div><div style="width: 80px;"></div><div>${portraitCard}</div></div>`;
   } else {
-    container.innerHTML = `<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;"><div class="reveal-animation">${portraitCard}</div><div style="height: ${mobile ? '32px' : '48px'};"></div><div class="reveal-animation" style="animation-delay: 0.15s; opacity: 0; animation-fill-mode: forwards;">${heroText}</div></div>`;
+    container.innerHTML = `<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;"><div>${portraitCard}</div><div style="height: ${mobile ? '32px' : '48px'};"></div><div>${heroText}</div></div>`;
   }
   
   setTimeout(() => {
