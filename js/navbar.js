@@ -1,5 +1,6 @@
 let activeIndex = 0;
 let mobileMenuOpen = false;
+let overlayElement = null;
 
 function useCompactMode() {
   return window.innerWidth < 768;
@@ -17,15 +18,41 @@ function getThemeColors() {
 
 function navigateToSection(index) {
   activeIndex = index;
-  mobileMenuOpen = false;
-  renderNavbar();
-  renderMobileDropdown();
+  closeMobileMenu();
   
   const sectionIds = ['home-section', 'projects-section', 'skills-section', 'experience-section', 'contact-section'];
   const targetElement = document.getElementById(sectionIds[index]);
   if (targetElement) {
     targetElement.scrollIntoView({ behavior: 'instant', block: 'start' });
   }
+  renderNavbar();
+}
+
+function closeMobileMenu() {
+  mobileMenuOpen = false;
+  if (overlayElement) {
+    overlayElement.remove();
+    overlayElement = null;
+  }
+  renderNavbar();
+  renderMobileDropdown();
+}
+
+function openMobileMenu() {
+  mobileMenuOpen = true;
+  createOverlay();
+  renderNavbar();
+  renderMobileDropdown();
+}
+
+function createOverlay() {
+  if (overlayElement) return;
+  overlayElement = document.createElement('div');
+  overlayElement.className = 'dropdown-overlay';
+  overlayElement.addEventListener('click', () => {
+    closeMobileMenu();
+  });
+  document.body.appendChild(overlayElement);
 }
 
 function renderNavbar() {
@@ -43,7 +70,6 @@ function renderNavbar() {
   const iconSize = isSmallScreen ? '16px' : '18px';
   
   const isDark = document.body.classList.contains('dark');
-  const hamburgerColor = isDark ? '#FFFFFF' : '#0F0F14';
   
   let navbarHtml = '';
   
@@ -136,12 +162,10 @@ function renderNavbar() {
     if (hamburger) {
       hamburger.addEventListener('click', (e) => {
         e.stopPropagation();
-        mobileMenuOpen = !mobileMenuOpen;
-        renderNavbar();
         if (mobileMenuOpen) {
-          renderMobileDropdown();
+          closeMobileMenu();
         } else {
-          renderMobileDropdown();
+          openMobileMenu();
         }
       });
     }
@@ -193,10 +217,7 @@ function renderMobileDropdown() {
     const idx = parseInt(el.dataset.index);
     el.addEventListener('click', (e) => {
       e.stopPropagation();
-      mobileMenuOpen = false;
       navigateToSection(idx);
-      renderNavbar();
-      renderMobileDropdown();
     });
     el.addEventListener('mouseenter', (e) => {
       e.currentTarget.style.background = document.body.classList.contains('dark') ? 'rgba(168,85,247,0.08)' : 'rgba(168,85,247,0.05)';
@@ -204,27 +225,6 @@ function renderMobileDropdown() {
     el.addEventListener('mouseleave', (e) => {
       e.currentTarget.style.background = 'transparent';
     });
-  });
-}
-
-// Close dropdown when clicking outside
-function setupClickOutsideListener() {
-  document.addEventListener('click', (e) => {
-    if (!mobileMenuOpen) return;
-    
-    const navbar = document.getElementById('navbar-container');
-    const dropdown = document.getElementById('mobile-dropdown-root');
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    
-    const isClickInsideNavbar = navbar?.contains(e.target);
-    const isClickInsideDropdown = dropdown?.contains(e.target);
-    const isClickOnHamburger = hamburgerBtn?.contains(e.target);
-    
-    if (!isClickInsideNavbar && !isClickInsideDropdown && !isClickOnHamburger) {
-      mobileMenuOpen = false;
-      renderNavbar();
-      renderMobileDropdown();
-    }
   });
 }
 
@@ -266,6 +266,9 @@ function setupNavbarScrollSpy() {
   
   let ticking = false;
   window.addEventListener('scroll', () => {
+    if (mobileMenuOpen) {
+      closeMobileMenu();
+    }
     if (!ticking) {
       requestAnimationFrame(() => {
         updateActiveSection();
@@ -286,11 +289,12 @@ function initNavbar() {
   
   renderNavbar();
   setupNavbarScrollSpy();
-  setupClickOutsideListener();
   
   window.addEventListener('resize', () => {
+    if (mobileMenuOpen) {
+      closeMobileMenu();
+    }
     renderNavbar();
-    if (mobileMenuOpen) renderMobileDropdown();
   });
   
   themeManager.addListener(() => {
