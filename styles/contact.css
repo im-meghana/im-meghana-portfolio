@@ -1,0 +1,155 @@
+.contact-section {
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 80px 24px;
+}
+
+.contact-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.contact-description {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+
+.contact-cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.contact-card-desktop {
+  width: 180px;
+}
+
+.contact-card-mobile {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.contact-card {
+  background: var(--card-color);
+  border-radius: 18px;
+  padding: 24px 18px;
+  transition: all 0.22s ease;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  text-align: center;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+}
+
+.contact-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.22s ease;
+  background: linear-gradient(135deg, #A855F7, #EC4899);
+}
+
+.contact-icon-wrapper svg {
+  width: 20px;
+  height: 20px;
+  stroke: white;
+  fill: none;
+}
+
+.contact-label {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.contact-subtext {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contact-subtext-mobile {
+  white-space: normal;
+  word-break: break-all;
+}
+
+.location-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 36px;
+}
+
+.location-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.location-icon svg,
+.location-icon img {
+  display: block;
+}
+
+.location-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+@media (max-width: 767px) {
+  .contact-section {
+    padding: 50px 20px 60px 20px;
+  }
+  
+  .contact-cards-grid {
+    flex-direction: column;
+    gap: 0;
+    margin-top: 36px;
+  }
+  
+  .contact-card-desktop {
+    width: 100%;
+  }
+  
+  .contact-description {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .contact-section {
+    padding: 50px 40px 60px 40px;
+  }
+  
+  .contact-cards-grid {
+    margin-top: 40px;
+  }
+}

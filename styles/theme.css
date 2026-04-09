@@ -1,0 +1,74 @@
+:root {
+  --bg-color: #FFFFFF;
+  --surface-color: #F8F8FB;
+  --card-color: #F2F2F7;
+  --card-color-hover: #EAEAF2;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-color-hover: rgba(0, 0, 0, 0.18);
+  --text-color: #0F0F14;
+  --text-muted: #6B6B7D;
+  --navbar-bg: rgba(255, 255, 255, 0.20);
+  --navbar-border: rgba(0, 0, 0, 0.08);
+  --navbar-shadow: 0 8px 30px rgba(0, 0, 0, 0.1), 0 4px 40px rgba(168, 85, 247, 0.08);
+  --accent-purple: #A855F7;
+  --accent-pink: #EC4899;
+  --accent-blue: #6366F1;
+  --accent-grad: linear-gradient(135deg, #A855F7, #EC4899);
+  --accent-grad-2: linear-gradient(135deg, #6366F1, #A855F7);
+  --accent-grad-full: linear-gradient(135deg, #6366F1, #A855F7, #EC4899);
+  --loader-bg: #050507;
+  --loader-bar-bg: #1a1a1a;
+  --glass-bg: rgba(0, 0, 0, 0.05);
+  --glass-bg-hover: rgba(0, 0, 0, 0.1);
+}
+
+body.dark {
+  --bg-color: #050507;
+  --surface-color: #0C0C0F;
+  --card-color: #111116;
+  --card-color-hover: #18181F;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-color-hover: rgba(255, 255, 255, 0.2);
+  --text-color: #F4F4F6;
+  --text-muted: #B8BCC4;
+  --navbar-bg: rgba(0, 0, 0, 0.10);
+  --navbar-border: rgba(255, 255, 255, 0.1);
+  --navbar-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 4px 40px rgba(168, 85, 247, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-bg-hover: rgba(255, 255, 255, 0.12);
+}
+
+.gradient-text {
+  background: var(--accent-grad-full);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text-simple {
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-text {
+  background: linear-gradient(135deg, #6366F1, #A855F7, #EC4899);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 6s ease-in-out infinite;
+}

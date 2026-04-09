@@ -1,0 +1,242 @@
+.experience-section {
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 80px 24px;
+}
+
+.experience-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.timeline-container {
+  display: flex;
+  margin-top: 48px;
+}
+
+.timeline-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 28px;
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #A855F7, #EC4899);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+}
+
+.timeline-vertical-line {
+  width: 2px;
+  height: 220px;
+  background: linear-gradient(180deg, rgba(168, 85, 247, 0.6), transparent);
+}
+
+.experience-card {
+  flex: 1;
+  background: var(--card-color);
+  border-radius: 20px;
+  padding: 28px;
+  transition: all 0.22s ease;
+  border: 1px solid var(--border-color);
+}
+
+.experience-card:hover {
+  transform: translateX(6px);
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.15);
+}
+
+.experience-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.experience-header-left {
+  flex: 1;
+}
+
+.experience-role {
+  font-family: 'Sora', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-color);
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.experience-company {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #A855F7, #EC4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.experience-period-badge {
+  padding: 6px 12px;
+  background: rgba(168, 85, 247, 0.08);
+  border-radius: 8px;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A855F7;
+  font-weight: 500;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .experience-header-column {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .experience-role-mobile {
+    font-family: 'Sora', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-color);
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+
+  .experience-company-mobile {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #A855F7, #EC4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+  }
+
+  .experience-period-badge-mobile {
+    display: inline-block;
+    width: auto;
+    padding: 6px 12px;
+    background: rgba(168, 85, 247, 0.08);
+    border-radius: 8px;
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #A855F7;
+    font-weight: 500;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+}
+
+.experience-bullets {
+  margin-top: 28px;
+}
+
+.bullet-item {
+  display: flex;
+  margin-bottom: 14px;
+}
+
+.bullet-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #A855F7, #EC4899);
+  margin-top: 8px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.bullet-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+@media (max-width: 767px) {
+  .experience-section {
+    padding: 50px 20px 60px 20px;
+  }
+  
+  .timeline-container {
+    margin-top: 36px;
+  }
+  
+  .timeline-line {
+    margin-right: 20px;
+  }
+  
+  .timeline-vertical-line {
+    height: 380px;
+  }
+  
+  .experience-card {
+    padding: 18px;
+  }
+  
+  .bullet-text {
+    font-size: 14px;
+  }
+  
+  .experience-period-badge-mobile {
+    white-space: nowrap;
+  }
+  
+  .experience-bullets {
+    margin-top: 24px;
+  }
+  
+  .bullet-item {
+    margin-bottom: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .experience-header-column,
+  .experience-role-mobile,
+  .experience-company-mobile,
+  .experience-period-badge-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .experience-section {
+    padding: 50px 40px 60px 40px;
+  }
+  
+  .experience-card {
+    padding: 24px;
+  }
+  
+  .timeline-vertical-line {
+    height: 200px;
+  }
+  
+  .experience-bullets {
+    margin-top: 24px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .timeline-vertical-line {
+    height: 220px;
+  }
+  
+  .experience-bullets {
+    margin-top: 28px;
+  }
+}
