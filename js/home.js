@@ -89,7 +89,13 @@ if (downloadBtn) {
   downloadBtn.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    window.location.href = 'assets/meghana_CV.pdf';
+    
+    const link = document.createElement('a');
+    link.href = 'assets/meghana_CV.pdf';
+    link.download = 'Meghana_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   });
   downloadBtn.addEventListener('mouseenter', (e) => {
     e.currentTarget.style.transform = 'translateY(-2px)';

@@ -13,7 +13,12 @@ function navigateToFooterSection(index) {
 }
 
 function downloadCV() {
-  window.location.href = 'assets/meghana_CV.pdf';
+  const link = document.createElement('a');
+  link.href = 'assets/meghana_CV.pdf';
+  link.download = 'Meghana_CV.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
 function renderFooter() {
@@ -149,22 +154,22 @@ function renderFooter() {
   
   container.innerHTML = footerHtml;
   
-  const downloadBtn = document.getElementById('footer-download-cv-btn');
-  if (downloadBtn) {
-    downloadBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      downloadCV();
-    });
-    downloadBtn.addEventListener('mouseenter', (e) => {
-      e.currentTarget.style.transform = 'translateY(-2px)';
-      e.currentTarget.style.boxShadow = '0 10px 30px rgba(168,85,247,0.3)';
-    });
-    downloadBtn.addEventListener('mouseleave', (e) => {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = 'none';
-    });
-  }
+const downloadBtn = document.getElementById('footer-download-cv-btn');
+if (downloadBtn) {
+  downloadBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    downloadCV();
+  });
+  downloadBtn.addEventListener('mouseenter', (e) => {
+    e.currentTarget.style.transform = 'translateY(-2px)';
+    e.currentTarget.style.boxShadow = '0 10px 30px rgba(168,85,247,0.3)';
+  });
+  downloadBtn.addEventListener('mouseleave', (e) => {
+    e.currentTarget.style.transform = 'translateY(0)';
+    e.currentTarget.style.boxShadow = 'none';
+  });
+}
   
   document.querySelectorAll('.footer-icon').forEach(icon => {
     const url = icon.dataset.url;
