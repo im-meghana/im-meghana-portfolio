@@ -84,17 +84,20 @@ function renderProjectsSection() {
         if (e.target.closest('.github-btn')) {
           return;
         }
-        window.open(url, '_blank');
+        e.preventDefault();
+        e.stopPropagation();
+        window.open(url, '_blank', 'noopener,noreferrer');
       });
     }
   });
   
   document.querySelectorAll('.github-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
       const url = btn.dataset.url;
       if (url) {
-        window.open(url, '_blank');
+        window.open(url, '_blank', 'noopener,noreferrer');
       }
     });
   });

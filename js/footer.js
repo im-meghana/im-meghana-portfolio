@@ -13,13 +13,7 @@ function navigateToFooterSection(index) {
 }
 
 function downloadCV() {
-  const link = document.createElement('a');
-  link.href = 'assets/meghana_CV.pdf';
-  link.download = 'Meghana_CV.pdf';
-  link.target = '_blank';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  window.location.href = 'assets/meghana_CV.pdf';
 }
 
 function renderFooter() {
@@ -155,17 +149,11 @@ function renderFooter() {
   
   container.innerHTML = footerHtml;
   
-  document.querySelectorAll('.footer-icon').forEach(icon => {
-    const url = icon.dataset.url;
-    icon.addEventListener('click', () => {
-      if (url) window.open(url, '_blank');
-    });
-  });
-  
   const downloadBtn = document.getElementById('footer-download-cv-btn');
   if (downloadBtn) {
     downloadBtn.addEventListener('click', (e) => {
       e.preventDefault();
+      e.stopPropagation();
       downloadCV();
     });
     downloadBtn.addEventListener('mouseenter', (e) => {
@@ -178,16 +166,39 @@ function renderFooter() {
     });
   }
   
+  document.querySelectorAll('.footer-icon').forEach(icon => {
+    const url = icon.dataset.url;
+    icon.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (url) {
+        if (url.startsWith('mailto:')) {
+          window.location.href = url;
+        } else {
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }
+      }
+    });
+  });
+  
   document.querySelectorAll('.footer-link').forEach(link => {
     const index = parseInt(link.dataset.index);
-    link.addEventListener('click', () => navigateToFooterSection(index));
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      navigateToFooterSection(index);
+    });
   });
   
   const emailRow = document.getElementById('footer-email-row');
   if (emailRow) {
     const url = emailRow.dataset.url;
-    emailRow.addEventListener('click', () => {
-      if (url) window.open(url, '_blank');
+    emailRow.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (url) {
+        window.location.href = url;
+      }
     });
   }
 }

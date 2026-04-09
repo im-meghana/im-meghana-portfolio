@@ -68,9 +68,15 @@ function renderContactSection() {
     const iconWrapper = card.querySelector('.contact-icon-wrapper');
     const cardElement = card;
     
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       if (url) {
-        window.open(url, '_blank');
+        if (url.startsWith('mailto:')) {
+          window.location.href = url;
+        } else {
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }
       }
     });
     
@@ -126,7 +132,6 @@ function renderContactLocation() {
   const locationContainer = document.getElementById('contact-location');
   if (!locationContainer) return;
   
-  const isDark = document.body.classList.contains('dark');
   const iconSize = '16px';
   
   locationContainer.innerHTML = `

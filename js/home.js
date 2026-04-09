@@ -83,73 +83,74 @@ function renderHomeContent() {
   setTimeout(() => {
     startHomeTypewriter();
   }, 100);
-  
-  const downloadBtn = document.getElementById('download-cv-btn');
-  if (downloadBtn) {
-    downloadBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const link = document.createElement('a');
-      link.href = 'assets/meghana_CV.pdf';
-      link.download = 'Meghana_CV.pdf';
-      link.target = '_blank';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
-    downloadBtn.addEventListener('mouseenter', (e) => {
-      e.currentTarget.style.transform = 'translateY(-2px)';
-      e.currentTarget.style.boxShadow = '0 10px 30px rgba(168,85,247,0.3)';
-    });
-    downloadBtn.addEventListener('mouseleave', (e) => {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = 'none';
-    });
-  }
-  
-  const emailBtn = document.getElementById('email-btn');
-  if (emailBtn) {
-    emailBtn.addEventListener('click', () => {
-      window.location.href = 'mailto:meghana16.atwork@gmail.com';
-    });
-    emailBtn.addEventListener('mouseenter', (e) => {
-      e.currentTarget.style.transform = 'translateY(-4px)';
-      e.currentTarget.style.borderColor = '#A855F7';
-    });
-    emailBtn.addEventListener('mouseleave', (e) => {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.borderColor = colors.borderColor;
-    });
-  }
-  
-  const linkedinBtn = document.getElementById('linkedin-btn');
-  if (linkedinBtn) {
-    linkedinBtn.addEventListener('click', () => {
-      window.open(K.linkedin, '_blank');
-    });
-    linkedinBtn.addEventListener('mouseenter', (e) => {
-      e.currentTarget.style.transform = 'translateY(-4px)';
-      e.currentTarget.style.borderColor = '#A855F7';
-    });
-    linkedinBtn.addEventListener('mouseleave', (e) => {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.borderColor = colors.borderColor;
-    });
-  }
-  
-  const githubBtn = document.getElementById('github-btn');
-  if (githubBtn) {
-    githubBtn.addEventListener('click', () => {
-      window.open(K.github, '_blank');
-    });
-    githubBtn.addEventListener('mouseenter', (e) => {
-      e.currentTarget.style.transform = 'translateY(-4px)';
-      e.currentTarget.style.borderColor = '#A855F7';
-    });
-    githubBtn.addEventListener('mouseleave', (e) => {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.borderColor = colors.borderColor;
-    });
-  }
+
+const downloadBtn = document.getElementById('download-cv-btn');
+if (downloadBtn) {
+  downloadBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.location.href = 'assets/meghana_CV.pdf';
+  });
+  downloadBtn.addEventListener('mouseenter', (e) => {
+    e.currentTarget.style.transform = 'translateY(-2px)';
+    e.currentTarget.style.boxShadow = '0 10px 30px rgba(168,85,247,0.3)';
+  });
+  downloadBtn.addEventListener('mouseleave', (e) => {
+    e.currentTarget.style.transform = 'translateY(0)';
+    e.currentTarget.style.boxShadow = 'none';
+  });
+}
+
+const emailBtn = document.getElementById('email-btn');
+if (emailBtn) {
+  emailBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.location.href = 'mailto:meghana16.atwork@gmail.com';
+  });
+  emailBtn.addEventListener('mouseenter', (e) => {
+    e.currentTarget.style.transform = 'translateY(-4px)';
+    e.currentTarget.style.borderColor = '#A855F7';
+  });
+  emailBtn.addEventListener('mouseleave', (e) => {
+    e.currentTarget.style.transform = 'translateY(0)';
+    e.currentTarget.style.borderColor = colors.borderColor;
+  });
+}
+
+const linkedinBtn = document.getElementById('linkedin-btn');
+if (linkedinBtn) {
+  linkedinBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.open(K.linkedin, '_blank', 'noopener,noreferrer');
+  });
+  linkedinBtn.addEventListener('mouseenter', (e) => {
+    e.currentTarget.style.transform = 'translateY(-4px)';
+    e.currentTarget.style.borderColor = '#A855F7';
+  });
+  linkedinBtn.addEventListener('mouseleave', (e) => {
+    e.currentTarget.style.transform = 'translateY(0)';
+    e.currentTarget.style.borderColor = colors.borderColor;
+  });
+}
+
+const githubBtn = document.getElementById('github-btn');
+if (githubBtn) {
+  githubBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.open(K.github, '_blank', 'noopener,noreferrer');
+  });
+  githubBtn.addEventListener('mouseenter', (e) => {
+    e.currentTarget.style.transform = 'translateY(-4px)';
+    e.currentTarget.style.borderColor = '#A855F7';
+  });
+  githubBtn.addEventListener('mouseleave', (e) => {
+    e.currentTarget.style.transform = 'translateY(0)';
+    e.currentTarget.style.borderColor = colors.borderColor;
+  });
+}
   
   const scrollWrapper = document.getElementById('scroll-down-wrapper');
   if (scrollWrapper && desktop && !mobile) {
