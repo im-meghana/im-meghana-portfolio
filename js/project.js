@@ -1,4 +1,16 @@
 const projectsData = [
+    {
+    title: 'Krypton Pass',
+    desc: 'A secure password manager built with Flutter that helps users safely store and manage their credentials.',
+    thumbnail: 'assets/images/kryptonpass_screen.webp',
+    skills: ['Flutter', 'Dart'],
+    platform: 'Android',
+    githubUrl: null,
+    playstoreUrl: 'https://play.google.com/store/apps/details?id=com.kryptonpass.app',
+    websiteUrl: 'https://kryptonpass.com',
+    isComingSoon: false
+  },
+  
   {
     title: 'AlphaFix',
     desc: 'AlphaFix is a simple utility that repairs video metadata lost during re-encoding - dates, GPS, camera info, all fixed in seconds.',
@@ -10,17 +22,7 @@ const projectsData = [
     websiteUrl: null,
     isComingSoon: false
   },
-  {
-    title: 'Krypton Pass',
-    desc: 'A secure password manager built with Flutter that helps users safely store and manage their credentials.',
-    thumbnail: 'assets/images/kryptonpass_screen.webp',
-    skills: ['Flutter', 'Dart'],
-    platform: 'Android',
-    githubUrl: null,
-    playstoreUrl: 'https://play.google.com/store/apps/details?id=com.kryptonpass.app',
-    websiteUrl: 'https://kryptonpass.com',
-    isComingSoon: false
-  },
+
   {
     title: 'Coming Soon',
     desc: 'A new project is currently in development. Stay tuned for the next release.',
