@@ -32,12 +32,11 @@ const skillsData = [
     ]
   },
   {
-    label: 'DATABASE & OTHER TOOLS',
+    label: 'DATABASES & TOOLS',
     icon: 'tools',
     accentColor: '#EC4899',
     skills: [
       { name: 'MySQL', icon: 'mysql-icon.svg', color: '#00758F', themeAware: false },
-      { name: 'MongoDB', icon: 'mongodb-icon.svg', color: '#47A248', themeAware: false },
       { name: 'Git', icon: 'git-icon.svg', color: '#F05032', themeAware: false },
       { name: 'GitHub', icon: 'github-icon.svg', color: '#FFFFFF', themeAware: true }
     ]

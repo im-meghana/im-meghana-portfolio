@@ -14,8 +14,8 @@ function navigateToFooterSection(index) {
 
 function downloadCV() {
   const link = document.createElement('a');
-  link.href = 'assets/meghana_CV.pdf';
-  link.download = 'Meghana_CV.pdf';
+  link.href = 'assets/Meghana_Resume.pdf';
+  link.download = 'Meghana_Resume.pdf';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -39,7 +39,7 @@ function renderFooter() {
   const downloadBtnHtml = `
     <button class="footer-download-btn" id="footer-download-cv-btn">
       <img src="assets/icons/download-icon.svg" alt="download" style="width: 12px; height: 12px; filter: brightness(0) saturate(100%) invert(100%);">
-      Download CV
+      Resume
     </button>
   `;
   

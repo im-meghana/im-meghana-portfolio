@@ -59,7 +59,7 @@ function renderHomeContent() {
       <div style="display: flex; flex-wrap: nowrap; align-items: center; justify-content: ${desktop ? 'flex-start' : 'center'}; gap: 12px; margin-top: 0; position: relative; z-index: 5;">
         <button class="gradient-btn-home" id="download-cv-btn" style="padding: ${buttonPadding}; border-radius: 10px; color: white; font-family: 'DM Sans', sans-serif; font-size: ${mobile ? '12px' : '14px'}; font-weight: 600; display: flex; align-items: center; gap: 8px; cursor: pointer; white-space: nowrap; border: none; transition: transform 0.18s ease, box-shadow 0.18s ease;">
           <img src="assets/icons/download-icon.svg" alt="download" style="width: ${iconImgSize}; height: ${iconImgSize}; filter: brightness(0) saturate(100%) invert(100%);">
-          Download CV
+          Resume
         </button>
         <div class="social-icon-home" id="email-btn" style="width: ${iconSize}; height: ${iconSize}; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: ${colors.cardBg}; border: 1px solid ${colors.borderColor}; cursor: pointer; flex-shrink: 0; transition: transform 0.2s ease, border-color 0.2s ease;">
           <img src="assets/icons/mail-icon.svg" alt="email" style="width: ${iconImgSize}; height: ${iconImgSize}; ${socialIconFilter}">
@@ -91,8 +91,8 @@ if (downloadBtn) {
     e.stopPropagation();
     
     const link = document.createElement('a');
-    link.href = 'assets/meghana_CV.pdf';
-    link.download = 'Meghana_CV.pdf';
+    link.href = 'assets/Meghana_Resume.pdf';
+    link.download = 'Meghana_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
